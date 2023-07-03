@@ -85,7 +85,7 @@ async function destroy(id) {
     const orden = ordenes.find((elemento) => elemento.id === id);
     const indice = ordenes.findIndex((elemento) => elemento.id === id);
 
-    if (!orden && indice === -1) throw new Error("Error. Id inexistente");
+    if (indice === -1) throw new Error("Error. Id inexistente");
 
     ordenes.splice(indice, 1);
     await escribir(ordenes);
